@@ -1,0 +1,12 @@
+body {
+  background-color: #CBCBCB;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+}

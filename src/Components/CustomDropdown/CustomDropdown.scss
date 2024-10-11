@@ -1,0 +1,97 @@
+$dropdown-bg: #333333;
+$dropdown-hover-bg: #444444;
+$dropdown-focus-bg: #1F1F1F;
+$dropdown-disabled-bg: rgba(226, 226, 226, 0.4);
+$dropdown-border: #292929;
+$dropdown-hover-border: #444444;
+$dropdown-focus-border: #665DC0;
+$dropdown-disabled-border: rgba(226, 226, 226, 0.4);
+$item-hover-bg: #333333;
+$item-disabled-bg: rgba(226, 226, 226, 0.4);
+$font-colour: #E2E2E2;
+
+.dropdown {
+    color: $font-colour;
+    width: 50vw;
+
+    .dropdown__selected {
+        background-color: $dropdown-bg;
+        border-radius: 0.4rem;
+        font-weight: 600;
+        padding: 0.5rem;
+        cursor: pointer;
+        border: 1px solid $dropdown-border;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+    
+        &:hover {
+            background-color: $dropdown-hover-bg;
+            border: 1px solid $dropdown-hover-border;
+        }
+    
+        &:focus-within {
+            background-color: $dropdown-focus-bg;
+            border: 1px solid $dropdown-focus-border;
+        }
+    
+    
+        input[type='text'] {
+            border: none;
+            font-weight: 600;
+            width: 100%;
+            background-color: transparent;
+            color: $font-colour;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1rem;
+            margin: 0;
+            padding: 0;
+    
+            &:focus {
+                outline: 0;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    
+    .dropdown__menu {
+        border: 1px solid $dropdown-border;
+        background-color: $dropdown-focus-bg;
+        border-radius: 0.4rem;
+        margin-top: 0.5rem;
+        overflow-y: scroll;
+        max-height: 500px;
+    
+        div {
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+    
+            .check {
+                color:#545454;
+                width: 1.5rem;
+                margin-top: 0.3rem;
+            }
+
+            .icon {
+                color: $font-colour;
+                margin-top: 0.3rem;
+                margin-right: 0.5rem;
+            }
+    
+            &:hover {
+                background-color: $item-hover-bg;
+                cursor: pointer;
+            }
+    
+            &.disabled {
+              cursor: not-allowed;
+              color: $item-disabled-bg;
+            }
+        }
+    }
+
+}
