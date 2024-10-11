@@ -19,6 +19,7 @@ function App() {
         defaultSelected={2}
         showCheck={true}
         showSearchBar={true}
+        openUpwards={false}
       />
     </div>
   )

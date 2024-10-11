@@ -9,6 +9,7 @@ const CustomDropdown = ({
     defaultSelected,
     showCheck,
     showSearchBar,
+    openUpwards,
   }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchResults, setSearchResults] = useState(items);
@@ -34,8 +35,36 @@ const CustomDropdown = ({
     setIsOpen(false);
   }
 
+  const DropDownMenu = () => {
+    return (isOpen && 
+        <div className="dropdown__menu">
+          {searchResults.map((item, index) => (
+            <div 
+              key={index}
+              onClick={() => handleSelectItem(item)}
+              className={
+                item.disabled && 'disabled'
+              }
+            >
+              {showCheck && 
+                <span className='check'>
+                  { selectedItem.label == item.label && <FaCheck /> }
+                </span>
+              }
+              {item.icon && 
+                <span className='icon'>
+                  <item.icon />
+                </span>
+              }
+              {item.label}
+            </div>  
+          ))}
+        </div>
+    )}
+
   return (
     <div className="dropdown">
+        {openUpwards && <DropDownMenu />}
       <div
         className='dropdown__selected'
         onClick={() => setIsOpen(!isOpen)}
@@ -66,32 +95,7 @@ const CustomDropdown = ({
           : <IoIosArrowDown/>
         }
       </div>
-
-      {isOpen && (
-        <div className="dropdown__menu">
-          {searchResults.map((item, index) => (
-            <div 
-              key={index}
-              onClick={() => handleSelectItem(item)}
-              className={
-                item.disabled && 'disabled'
-              }
-            >
-              {showCheck && 
-                <span className='check'>
-                  { selectedItem.label == item.label && <FaCheck /> }
-                </span>
-              }
-              {item.icon && 
-                <span className='icon'>
-                  <item.icon />
-                </span>
-              }
-              {item.label}
-            </div>  
-          ))}
-        </div>
-      )}
+      {!openUpwards && <DropDownMenu />}
     </div>
   )
 }
@@ -100,14 +104,15 @@ CustomDropdown.propTypes = {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
-        icon: PropTypes.node,
+        icon: PropTypes.any,
         disabled: PropTypes.bool,
       })
     ).isRequired,
-    defaultSelected: PropTypes.string,
+    defaultSelected: PropTypes.number,
     showCheck: PropTypes.bool,
     showSearchBar: PropTypes.bool,
-  };
+    openUpwards: PropTypes.bool,
+};
   
 
 export default CustomDropdown;
