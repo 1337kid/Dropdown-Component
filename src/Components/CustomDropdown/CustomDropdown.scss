@@ -12,7 +12,7 @@ $font-colour: #E2E2E2;
 
 .dropdown {
     color: $font-colour;
-    width: 50vw;
+    width: 600px;
 
     .dropdown__selected {
         background-color: $dropdown-bg;
@@ -26,6 +26,15 @@ $font-colour: #E2E2E2;
         justify-content: space-between;
         position: relative;
 
+        span {
+            display: flex;
+
+            .icon {
+                color: $font-colour;
+                margin-top: 0.1rem;
+                margin-right: 0.5rem;
+            }
+        }
     
         &:hover {
             background-color: $dropdown-hover-bg;

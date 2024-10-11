@@ -51,7 +51,15 @@ const CustomDropdown = ({
               onClick={(e) => e.stopPropagation()} 
             />
           )
-          : selectedItem ? selectedItem.label : 'No Items Selected'
+          : selectedItem ? (
+            <span>
+              {selectedItem.icon && 
+                <span className='icon'>
+                  <selectedItem.icon />
+                </span>
+              }
+              {selectedItem.label}
+            </span>) : 'No Items Selected'
         }
         {isOpen 
           ? <IoIosArrowUp/>
