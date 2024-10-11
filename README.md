@@ -3,6 +3,9 @@
 This is a reusable component that can be used with any react project.
 
 ```js
+import CustomDropdown from "./Components/CustomDropdown/CustomDropdown";
+```
+```js
 <CustomDropdown
   items={items}
   defaultSelected={2}
